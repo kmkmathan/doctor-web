@@ -1,0 +1,138 @@
+<style>
+.info-box-4 .content .text { font-size: 16px; margin: 5px 0; color: #555; }
+.info-box-4 .content .number { font-weight: normal; font-size: 36px; margin-top: 0px; color: #333; }
+.info-box-4 .icon { position: absolute; right: 20px; top: 50%; text-align: center; height: 36px; width: 36px; margin-top: -22px; }
+.info-box-4 { box-shadow: none; min-height: 100px; display: flex; cursor: default; background-color: #fff; position: relative; overflow: hidden; margin-bottom: 30px; transition: .5s; border: 1px solid #f2f2f2; }
+.info-box-4{-webkit-transition:all 0.4s linear;-o-transition:all 0.4s linear;-moz-transition:all 0.4s linear;}
+.info-box-4:hover {
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+    transition: all 150ms linear;
+}
+.info-box-4:hover .icon{font-size:30px;transform:rotate(-32deg) scale(1.4);-wbkit-transform:rotate(-32deg) scale(1.4);-o-transform:rotate(-32deg) scale(1.4);-moz-transform:rotate(-32deg) scale(1.4);}
+.card {
+    background-color: #fff;
+}
+.info-box-4 .icon{font-size:24px; transition:all 0.4s linear;-webkit-transition:all 0.4s linear;-o-transition:all 0.4s linear;-moz-transition:all 0.4s linear;}
+.info-box-4 .content { display: inline-block; padding: 7px 16px; }
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding class="cnt_main_section">
+   <div class="card">
+       <div class="header">
+           <h2>Dashboard</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+
+<div class="row">
+
+    <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    </div> -->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <md-content layout-padding>
+        <div class="info-box-4 hover-zoom-effect">
+    <div class="icon"><i class="fa fa-envelope-o" style="color:#03A9F4;"></i> </div>
+            <div class="content">
+                <div class="text">Send a Mail </div>
+                <div class="number"></div>
+            </div>
+        </div>
+          </md-content>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <md-content layout-padding>
+        <div class="info-box-4 hover-zoom-effect" ng-click="gotoreminder()">
+    <div class="icon"><i class="fa fa-bell-o" style="color:#009688"></i></div>
+            <div class="content">
+                <div class="text">Reminders</div>
+                <div class="number"></div>
+            </div>
+        </div>
+          </md-content>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <md-content layout-padding>
+    <div class="info-box-4 hover-zoom-effect" >
+    <div class="icon"><i class="fa fa-bar-chart" style="color:#652935"></i></div>
+        <div class="content">
+            <div class="text">Risk Meter</div>
+            <div class="number"></div>
+        </div>
+    </div>
+      </md-content>
+    </div>
+
+</div>
+<div class="row">
+
+    <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    </div> -->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <md-content layout-padding>
+        <div class="info-box-4 hover-zoom-effect" ng-click="gotoappointment()">
+    <div class="icon"><i class="fa fa-stethoscope" style="color:#009688"></i></div>
+            <div class="content">
+                <div class="text">Schedule On Appointment</div>
+                <div class="number"></div>
+            </div>
+        </div>
+          </md-content>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <md-content layout-padding>
+        <div class="info-box-4 hover-zoom-effect">
+    <div class="icon"><i class="fa fa-user-o" style="color:#03A9F4;"></i> </div>
+            <div class="content">
+                <div class="text">Pending Requests </div>
+                <div class="number"></div>
+            </div>
+        </div>
+          </md-content>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <md-content layout-padding>
+    <div class="info-box-4 hover-zoom-effect" >
+    <div class="icon"><i class="fa fa-smile-o" style="color:#F27900"></i></div>
+        <div class="content">
+            <div class="text">My family Doctor</div>
+            <div class="number"></div>
+        </div>
+    </div>
+      </md-content>
+    </div>
+
+</div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="card">
+          <div class="header">
+              <h2>Patient Tracking</h2>
+          </div>
+             <hr>
+          <div class="body">
+            <div>
+   <fusioncharts id="chartcontainer" chartid="chartremaind" width="100%" height="250" type="line" dataFormat= 'json', dataSource="{{dataSource}}" config="{{chartoptions}}"></fusioncharts>
+
+</div>
+
+          </div>
+          <br>
+          <div class="body">
+            <div>
+   <fusioncharts id="chartcontainer" chartid="health record" width="100%" height="250" type="line" dataFormat= 'json', dataSource="{{dataSource1}}" config="{{chartoptions}}"></fusioncharts>
+
+</div>
+          </div>
+      </div>
+  </div>
+
+
+</div>
+</div>
+    </md-content>
+</div>

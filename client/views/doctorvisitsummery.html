@@ -1,0 +1,322 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+.head{
+  margin-left: 35%;
+}
+b {
+  color:#09b9ac;
+}
+td {
+    color:#09b9ac;
+}
+</style>
+
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-repeat="d in [visitlist[visitlist.length-1]] track by $index">
+<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-repeat="d in visitlist"> -->
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>Visit Summary</h3>
+    </div>
+       <div class="head">
+         <label>Doctor Name : </label> <b>Dr.{{fname}}</b>
+       </div>
+
+       <hr>
+
+       <div class="body">
+         <!-- <div class="row">
+           <div class="col-xs-4">
+             <label>Doctor Name : </label> <b>Dr.{{fname}}</b>
+           </div>
+         </div> -->
+        <div class="row">
+          <div class="col-xs-4">
+   <label>Chief Complaint Description : </label> <b>{{d.chiefcomplaintdes}}</b>
+ </div>
+
+          <div class="col-xs-4">
+
+              <label>Visit Category :  </label> <b>{{d.visitcategory}}</b>
+
+         </div>
+         <div class="col-xs-4">
+
+             <label>Sensitivity : </label> <b>{{d.sensitivity}}</b>
+
+        </div>
+
+        </div>
+
+          <div class="row">
+
+            <div class="col-xs-4">
+
+      <label>Consulation Brief Description : </label> <b>{{d.consulationbriefdes}}</b>
+
+      </div>
+        </div>
+
+     <hr>
+
+  <label>Issues (Injuries/Medical/Allergy)</label>
+<hr>
+      <div class="row">
+
+        <div class="col-xs-4">
+
+        <label>Type : </label> <b>{{d.type}}</b>
+
+        </div>
+
+      <div class="col-xs-4" ng-if="d.type == 'Problem'">
+
+      <label>Type of Problem : </label> <b>{{d.typeproblem}}</b>
+
+      </div>
+      <div class="col-xs-4" ng-if="d.type == 'Allergy'">
+
+      <label>Type of Allergy : </label> <b>{{d.typeallergy}}</b>
+
+      </div>
+      <div class="col-xs-4" ng-if="d.type == 'Medication'">
+
+      <label>Type of Medication : </label> <b>{{d.typemedication}}</b>
+
+      </div>
+      <div class="col-xs-4" ng-if="d.type == 'Surgery'">
+
+      <label>Type of Surgery : </label> <b>{{d.typesurgery}}</b>
+
+      </div>
+      </div>
+      <div class="row">
+           <div class="col-xs-4">
+
+               <label>Title : </label> <b>{{d.title}}</b>
+
+           </div>
+           <div class="col-xs-4">
+
+               <label class="id">Active Issue Codes : </label> <b>{{d.activeissue}}</b>
+
+           </div>
+           <div class="col-xs-4">
+
+               <label class="id">Coding : </label> <b>{{d.coding}}</b>
+
+           </div>
+      </div>
+      <div class="row">
+                       <div class="col-xs-4">
+
+                           <label class="id">Begin Date : </label> <b>{{d.begindate}}</b>
+
+                       </div>
+
+
+
+
+           <div class="col-xs-4">
+
+               <label class="id">End Date : </label> <b>{{d.enddate}}</b>
+
+           </div>
+
+           <div class="col-xs-4">
+
+               <label class="id">Occurance : </label> <b>{{d.occurance}}</b>
+
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-xs-4" ng-if="d.type == 'Allergy'">
+
+               <label class="id">Severity : </label> <b>{{d.severity}}</b>
+
+           </div>
+
+           <div class="col-xs-4" ng-if="d.type == 'Allergy'">
+
+               <label class="id">Reaction : </label> <b>{{d.reaction}}</b>
+
+           </div>
+
+           <div class="col-xs-4">
+
+               <label class="id">Reffered By : </label> <b>{{d.refferedby}}</b>
+
+           </div>
+
+           <div class="col-xs-4">
+
+               <label class="id">Outcome : </label> <b>{{d.outcome}}</b>
+
+           </div>
+
+
+
+           <div class="col-xs-4">
+
+               <label class="id">Description : </label> <b>{{d.description}}</b>
+
+           </div>
+
+
+
+      </div>
+
+
+
+
+
+
+   <hr>
+      <div class="row">
+      <div class="col-xs-4">
+
+   <label>Complaints/Symptoms/Signs : </label> <b>{{d.complaints}}</b>
+
+   </div>
+   <div class="col-xs-4">
+
+   <label>Probable Diagnosis : </label> <b>{{d.diagnosis}}</b>
+
+
+   </div>
+   <div class="col-xs-4">
+
+   <label> Treatment : </label> <b>{{d.treatment}}</b>
+
+   </div>
+       </div>
+       <hr>
+
+
+       <div class="row">
+       <div class="col-xs-4">
+         <label>Ordering Provider : </label> <b>Dr.{{fname}}</b>
+       </div>
+
+       <div class="col-xs-4">
+
+           <label>Sending To : </label> <b>{{d.proceduresendingto}}</b>
+       </div>
+       <div class="col-xs-4">
+
+         <label>Order Date : </label> <b>{{d.procedureorderdate}}</b>
+
+       </div>
+
+       </div>
+
+       <div class="row">
+
+       <div class="col-xs-4">
+
+          <label>Priority : </label> <b>{{d.procedurepriority}}</b>
+
+       </div>
+       <div class="col-xs-4">
+
+         <label>Procedure : </label> <b>{{d.procedure}}</b>
+
+       </div>
+       </div>
+
+
+       <hr>
+
+       <div class="table-responsive-m">
+         <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+              <thead>
+                 <tr>
+                      <th>S No</th>
+                      <th>Medicine Name</th>
+                      <th>Morning</th>
+                      <th>Afternoon</th>
+                      <th>Evening</th>
+                      <th>Night</th>
+                      <th>Duration</th>
+                      <th>Medication Instruction</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                    <tr>
+                      <td>{{$index+1}}</td>
+                      <td>{{d.medicinename}}</td>
+                      <td>{{d.medicationfrequencymrn}}</td>
+                      <td>{{d.medicationfrequencyaftn}}</td>
+                      <td>{{d.medicationfrequencyeve}}</td>
+                      <td>{{d.medicationfrequencynit}}</td>
+                      <td>{{d.medicationduration}}</td>
+                       <td>{{d.medicationinstruction}}</td>
+
+                         </tr>
+
+
+                     </tbody>
+                 </table>
+       </div>
+
+        <hr>
+  <div class="row">
+  <div class="col-xs-4">
+
+<label>Instruction : </label> <b>{{d.instruction}}</b>
+
+</div>
+<div class="col-xs-4">
+
+<label>Health Goal : </label> <b>{{d.goal}}</b>
+
+</div>
+   </div>
+
+  <div class="row">
+  <div class="col-xs-4">
+
+<labeL>Type of Procedure : </label> <b>{{d.typeproinstruction}}</b>
+
+</div>
+<div class="col-xs-4">
+
+    <label>Follow-up Date :  </label> <b>{{d.profollouupdate}}</b>
+
+
+</div>
+   </div>
+
+
+
+<div class="row">
+<div class="col-xs-4">
+
+ <label>Doctor Visit Follow-up Date : </label> <b>{{d.docvisitfollouupdate}}</b>
+
+</div>
+<div class="col-xs-4">
+
+    <label>Provided Education : </label> <b>{{d.providededucation}}</b>
+
+
+</div>
+</div>
+
+
+<br>
+<div class="row" style="margin-left: 65%;">
+  <md-button class="md-primary" ng-click="closevisit()">Close</md-button>
+      </div>
+
+
+</div>
+    </div>
+    </div>
+        </md-content>
+    </div>

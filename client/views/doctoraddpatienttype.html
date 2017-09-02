@@ -1,0 +1,225 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+
+</style>
+
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>Doctor Prescription</h3>
+       </div>
+       <hr>
+       <div class="body">
+
+
+
+
+<form name="doctorForm" class="container-fluid" ng-submit="submit()">
+<div class="row">
+          <div class="col-xs-8">
+
+              <label>Type : </label> &nbsp;&nbsp;
+              <input type="radio" name="pro" value="1" ng-model="doctor.type1"> Problem &nbsp;&nbsp;
+<input type="radio" name="pro" value="2" ng-model="doctor.type2"> Allergy &nbsp;&nbsp;
+<input type="radio" name="pro" value="3" ng-model="doctor.type3"> Medication &nbsp;&nbsp;
+<input type="radio" name="pro" value="4" ng-model="doctor.type4"> Surgery &nbsp;&nbsp;
+<input type="radio" name="pro" value="5" ng-model="doctor.type5"> Dental
+
+         </div>
+</div>
+
+
+<div class="row">
+<div class="col-xs-4" ng-if="doctor.type1 == true">
+  <md-input-container>
+    <label>Type of Problem </label>
+    <md-select name="typeproblem"  placeholder="Type of Problem" ng-model="doctor.typeproblem">
+      <md-option ng-repeat="o in typeproblem" ng-value="o">{{o}}</md-option>
+    </md-select>
+    <div ng-messages="doctorForm.typeproblem.$error">
+      <div ng-message="required">Type of Problem is required.</div>
+    </div>
+  </md-input-container>
+</div>
+<div class="col-xs-4" ng-if="doctor.type2 == true">
+  <md-input-container>
+    <label>Type of Allergy </label>
+    <md-select name="typeallergy"  placeholder="Type of Allergy " ng-model="doctor.typeallergy">
+      <md-option ng-repeat="o in typeallergy" ng-value="o">{{o}}</md-option>
+    </md-select>
+    <div ng-messages="doctorForm.typeallergy.$error">
+      <div ng-message="required">Type of Allergy is required.</div>
+    </div>
+  </md-input-container>
+</div>
+<div class="col-xs-4" ng-if="doctor.type3 == true">
+  <md-input-container>
+    <label>Type of Medication </label>
+    <md-select name="typemedication" placeholder="Type of Medication" ng-model="doctor.typemedication">
+      <md-option ng-repeat="o in typemedication" ng-value="o">{{o}}</md-option>
+    </md-select>
+    <div ng-messages="doctorForm.typemedication.$error">
+      <div ng-message="required">Type of Medication is required.</div>
+    </div>
+  </md-input-container>
+</div>
+<div class="col-xs-4" ng-if="doctor.type4 == true">
+  <md-input-container>
+    <label>Type of Surgery </label>
+    <md-select name="typesurgery" placeholder="Type of Surgery " ng-model="doctor.typesurgery">
+      <md-option ng-repeat="o in typesurgery" ng-value="o">{{o}}</md-option>
+    </md-select>
+    <div ng-messages="doctorForm.typesurgery.$error">
+      <div ng-message="required">Type of Surgery is required.</div>
+    </div>
+  </md-input-container>
+</div>
+      </div>
+      <div class="row">
+            <div class="col-xs-4">
+              <md-input-container>
+                <label>Title </label>
+                <input name="title" ng-model="doctor.title">
+
+                <div ng-messages="doctorForm.title.$error">
+                  <div ng-message="required">Title is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Active Issue Codes</label>
+                <input name="activeissue" ng-model ="doctor.activeissue">
+                <div ng-messages="doctorForm.activeissue.$error">
+                  <div ng-message="required">Active Issue Codes is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Coding</label>
+                <input name="coding" ng-model ="doctor.coding">
+                <div ng-messages="doctorForm.coding.$error">
+                  <div ng-message="required">Coding is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+</div>
+<div class="row">
+                        <div class="col-xs-4">
+                          <md-input-container>
+                            <label class="id">Begin Date</label>
+                            <input name="begindate" ng-model ="doctor.begindate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+                            <div ng-messages="doctorForm.begindate.$error">
+                              <div ng-message="required">Begin Date is required.</div>
+                            </div>
+                          </md-input-container>
+                        </div>
+
+
+
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">End Date</label>
+                <input name="enddate" ng-model ="doctor.enddate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+                <div ng-messages="doctorForm.enddate.$error">
+                  <div ng-message="required">End Date is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Occurance</label>
+                <md-select name="occurance" id="occurance" placeholder="Occurance " ng-model="doctor.occurance">
+                  <md-option ng-repeat="o in occurance" ng-value="o">{{o}}</md-option>
+                </md-select>
+                <div ng-messages="doctorForm.occurance.$error">
+                  <div ng-message="required">Occurance is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4" ng-if="doctor.type2 == true">
+              <md-input-container>
+                <label class="id">Severity</label>
+                <md-select name="severity" id="severity" placeholder="Severity " ng-model="doctor.severity">
+                  <md-option ng-repeat="o in severity" ng-value="o">{{o}}</md-option>
+                </md-select>
+                <div ng-messages="doctorForm.severity.$error">
+                  <div ng-message="required">Severity is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <div class="col-xs-4" ng-if="doctor.type2  == true">
+              <md-input-container>
+                <label class="id">Reaction</label>
+                <md-select name="reaction" id="reaction" placeholder="Reaction " ng-model="doctor.reaction">
+                  <md-option ng-repeat="o in reaction" ng-value="o">{{o}}</md-option>
+                </md-select>
+                <div ng-messages="doctorForm.reaction.$error">
+                  <div ng-message="required">Reaction is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Reffered By</label>
+                <input name="temp" ng-model ="doctor.refferedby">
+                <div ng-messages="doctorForm.temp.$error">
+                  <div ng-message="required">Reffered By is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Outcome</label>
+                <md-select name="outcome" id="outcome" placeholder="Outcome " ng-model="doctor.outcome">
+                  <md-option ng-repeat="o in outcome" ng-value="o">{{o}}</md-option>
+                </md-select>
+                <div ng-messages="doctorForm.outcome.$error">
+                  <div ng-message="required">Outcome is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Description</label>
+                <input name="description" ng-model ="doctor.description">
+                <div ng-messages="doctorForm.description.$error">
+                  <div ng-message="required">Description is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+
+
+      </div>
+      </div>
+
+
+<br>
+<md-button class="md-primary" ng-click="updatereminder()" >Back</md-button>
+        <md-button class="md-primary"   ng-click="addPatienttype()">Save & Next</md-button>
+      </form>
+
+
+
+    </div>
+    </div>
+        </md-content>
+    </div>

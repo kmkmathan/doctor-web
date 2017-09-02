@@ -1,0 +1,266 @@
+<style>
+.card {
+    background-color: #fff;
+}
+.view_detail{margin-top:20px;}
+</style>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding class="view_detail">
+   <div class="card">
+       <div class="header">
+           <h2>View Details</h2>
+       </div>
+       <hr>
+       <div class="body">
+<div class="but_list">
+
+
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+         <li role="presentation" class="active"><a data-target="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add doctor</a></li>
+         <li role="presentation"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Add Nurse</a></li>
+         <li role="presentation"><a data-target="#callcenter" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Call center</a></li>
+         <li role="presentation"><a data-target="#frontdesk" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Front Desk</a></li>
+         <li role="presentation"><a data-target="#facilityadmin" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Facility Admin</a></li>
+
+
+       </ul>
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+<div ng-show="DoctorForm">
+<div class="row">
+  <div class="col-sm-3"><input type="text" ng-model="doct.firstName"></div>
+  <div class="col-sm-3"><input type="text" ng-model="doct.lastName"></div>
+  <div class="col-sm-3"><input type="text" ng-model="doct.userName"></div>
+  <div class="col-sm-3"><input type="text" ng-model="doct.email"></div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-3"><input type="text" ng-model="doct.mobile"></div>
+  <div class="col-sm-3"><input type="text" ng-model="doct.facebook"></div>
+  <div class="col-sm-3"><button type="button" ng-click="updateDoctor()">Update</button></div>
+  <div class="col-sm-3"></div>
+</div>
+</div>
+
+         <table class="table">
+             <thead>
+               <tr>
+                 <th>Doctor Name </th>
+                 <th>UserName</th>
+                 <th>Email</th>
+                 <th>FacilityName  </th>
+                 <th>Speciality</th>
+                 <th>Mobile</th>
+                 <th>Facebook</th>
+                 <th>Edit/Delete</th>
+               </tr>
+             </thead>
+             <tbody>
+
+               <tr ng-repeat="d in doctorlist">
+                 <td>{{d.firstName+" "+d.lastName}}</td>
+                 <td>{{d.userName}}</td>
+                 <td>{{d.email}}</td>
+                 <td>{{d.facilityName}}</td>
+                 <td>{{d.Speciality}}</td>
+                 <td>{{d.mobile}}</td>
+                 <td>{{d.facebook}}</td>
+                 <td ><button class="glyphicon glyphicon-pencil" ng-show="doceditShow" ng-click="editDoctor(d)">Edit</button>
+                 <button class="glyphicon glyphicon-trash" ng-show="docdelShow" ng-click="delDoctor(d)">Delete</button></td>
+
+               </tr>
+
+             </tbody>
+           </table>
+       </div>
+
+
+
+       <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+         <div ng-show="nurseForm">
+         <div class="row">
+           <div class="col-sm-3"><input type="text" ng-model="nur.firstName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.lastName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.userName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.email"></div>
+         </div>
+         <br>
+         <div class="row">
+           <div class="col-sm-3"><input type="text" ng-model="nur.mobile"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.experiance"></div>
+           <div class="col-sm-3"><button type="button" ng-click="updateNurse()">Update</button></div>
+           <div class="col-sm-3"></div>
+         </div>
+         </div>
+
+         <table class="table">
+             <thead>
+               <tr>
+                 <th>Nurse Name </th>
+                 <th>UserName</th>
+                 <th>Email</th>
+                 <th>Hospital  </th>
+                 <th>Speciality</th>
+                 <th>Mobile</th>
+                 <th>Experience</th>
+                 <th>Edit/Delete</th>
+               </tr>
+             </thead>
+             <tbody>
+
+               <tr ng-repeat="d in nurselist">
+                 <td>{{d.firstName+" "+d.lastName}}</td>
+                 <td>{{d.userName}}</td>
+                 <td>{{d.email}}</td>
+                 <td>{{d.hospital}}</td>
+                 <td>{{d.speciality}}</td>
+                 <td>{{d.mobile}}</td>
+                 <td>{{d.experiance}}</td>
+                 <td ><button class="glyphicon glyphicon-pencil" ng-click="editNurse(d)">Edit</button>
+                 <button class="glyphicon glyphicon-trash" ng-click="delNurse(d)">Delete</button></td>
+
+               </tr>
+
+             </tbody>
+           </table>
+
+
+       </div>
+
+
+       <div role="tabpanel" class="tab-pane fade" id="callcenter" aria-labelledby="profile-tab">
+         <div ng-show="calForm">
+         <div class="row">
+           <div class="col-sm-3"><input type="text" ng-model="cal.firstName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="cal.lastName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="cal.userName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="cal.email"></div>
+         </div>
+         <br>
+         <div class="row">
+           <div class="col-sm-3"><input type="text" ng-model="cal.mobile"></div>
+           <div class="col-sm-3"><input type="text" ng-model="cal.experiance"></div>
+           <div class="col-sm-3"><button type="button" ng-click="updateCall()">Update</button></div>
+           <div class="col-sm-3"></div>
+         </div>
+         </div>
+         <table class="table">
+             <thead>
+               <tr>
+                 <th>Call center </th>
+                 <th>UserName</th>
+                 <th>Email</th>
+                 <th>Hospital  </th>
+                 <th>Speciality</th>
+                 <th>Mobile</th>
+                 <th>Experience</th>
+                 <th>Edit/Delete</th>
+               </tr>
+             </thead>
+             <tbody>
+
+               <tr ng-repeat="d in callist">
+                 <td>{{d.firstName+" "+d.lastName}}</td>
+                 <td>{{d.userName}}</td>
+                 <td>{{d.email}}</td>
+                 <td>{{d.hospital}}</td>
+                 <td>{{d.speciality}}</td>
+                 <td>{{d.mobile}}</td>
+                 <td>{{d.experiance}}</td>
+                 <td ><button class="glyphicon glyphicon-pencil" ng-click="editCall(d)">Edit</button>
+                 <button class="glyphicon glyphicon-trash" ng-click="delCall(d)">Delete</button></td>
+
+               </tr>
+
+             </tbody>
+           </table>
+
+
+       </div>
+
+
+       <div role="tabpanel" class="tab-pane fade" id="frontdesk" aria-labelledby="profile-tab">
+
+         <table class="table">
+             <thead>
+               <tr>
+                 <th>Front Desk </th>
+                 <th>UserName</th>
+                 <th>Email</th>
+                 <th>Hospital  </th>
+                 <th>Speciality</th>
+                 <th>Mobile</th>
+                 <th>Experience</th>
+                 <th>Edit/Delete</th>
+               </tr>
+             </thead>
+             <tbody>
+
+               <tr ng-repeat="d in FrontList">
+                 <td>{{d.firstName+" "+d.lastName}}</td>
+                 <td>{{d.userName}}</td>
+                 <td>{{d.email}}</td>
+                 <td>{{d.hospital}}</td>
+                 <td>{{d.speciality}}</td>
+                 <td>{{d.mobile}}</td>
+                 <td>{{d.experiance}}</td>
+                 <td ><button class="glyphicon glyphicon-pencil" ng-click="editUser(d)">Edit</button>
+                 <button class="glyphicon glyphicon-trash" ng-click="delUser(d)">Delete</button></td>
+
+               </tr>
+
+             </tbody>
+           </table>
+
+       </div>
+
+
+       <div role="tabpanel" class="tab-pane fade" id="facilityadmin" aria-labelledby="profile-tab">
+
+         <table class="table">
+             <thead>
+               <tr>
+                 <th>Facility Admin </th>
+                 <th>UserName</th>
+                 <th>Email</th>
+                 <th>Hospital  </th>
+                 <th>Speciality</th>
+                 <th>Mobile</th>
+                 <th>Experience</th>
+                 <th>Edit/Delete</th>
+               </tr>
+             </thead>
+             <tbody>
+
+               <tr ng-repeat="d in FacilityList">
+                 <td>{{d.firstName+" "+d.lastName}}</td>
+                 <td>{{d.userName}}</td>
+                 <td>{{d.email}}</td>
+                 <td>{{d.hospital}}</td>
+                 <td>{{d.speciality}}</td>
+                 <td>{{d.mobile}}</td>
+                 <td>{{d.experiance}}</td>
+                 <td ><button class="glyphicon glyphicon-pencil" ng-click="editUser(d)">Edit</button>
+                 <button class="glyphicon glyphicon-trash" ng-click="delUser(d)">Delete</button></td>
+
+               </tr>
+
+             </tbody>
+           </table>
+
+
+       </div>
+
+
+
+
+     </div>
+    </div>
+    </div>
+  </div>
+  </div>
+      </md-content>
+  </div>

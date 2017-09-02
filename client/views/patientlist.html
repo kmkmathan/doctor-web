@@ -1,0 +1,90 @@
+<style>
+.info-box-4 .content .text { font-size: 16px; margin: 5px 0; color: #555; }
+.info-box-4 .content .number { font-weight: normal; font-size: 36px; margin-top: 0px; color: #333; }
+.info-box-4 .icon { position: absolute; right: 20px; top: 50%; text-align: center; height: 36px; width: 36px; margin-top: -22px; }
+.info-box-4 { box-shadow: none; min-height: 100px; display: flex; cursor: default; background-color: #fff; position: relative; overflow: hidden; margin-bottom: 30px; transition: .5s; border: 1px solid #f2f2f2; }
+.info-box-4{-webkit-transition:all 0.4s linear;-o-transition:all 0.4s linear;-moz-transition:all 0.4s linear;}
+.info-box-4:hover {
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+    transition: all 150ms linear;
+}
+.info-box-4:hover .icon{font-size:30px;transform:rotate(-32deg) scale(1.4);-wbkit-transform:rotate(-32deg) scale(1.4);-o-transform:rotate(-32deg) scale(1.4);-moz-transform:rotate(-32deg) scale(1.4);}
+.card {
+    background-color: #fff;
+}
+.info-box-4 .icon{font-size:24px; transition:all 0.4s linear;-webkit-transition:all 0.4s linear;-o-transition:all 0.4s linear;-moz-transition:all 0.4s linear;}
+.info-box-4 .content { display: inline-block; padding: 7px 16px; }
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding class="cnt_main_section">
+   <div class="card">
+
+
+
+
+
+             <div class="container-fluid">
+
+                 <div class="row clearfix">
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                         <div class="card">
+                             <div class="header">
+                                 <h3>Patient Lists</h3>
+                             </div>
+                             <hr>
+                             
+                             <button type="button" style="margin-left: 80%;"><a href="#/patient">Add Patient</a></button>
+
+                             <div class="col-xs-4">
+                                        <md-input-container>
+                                          <label>Search </label>
+                                          <input type="text" name="subtype"  ng-model="idSearch" required  >
+
+                                        </md-input-container>
+                                      </div>
+
+                                      
+
+                             <div class="body">
+                             <div class="table-responsive-m">
+                               <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                       <tr>
+                                            <th>S No</th>
+                                            <th>Patient ID</th>
+                                            <th>Patient Name</th>
+                                            <th>Gender</th>
+                                            <th>Email</th>
+                                            <th>Mobile </th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr ng-repeat="d in patientList | filter:idSearch ">
+                                            <td>{{$index+1}}</td>
+                                            <td>{{d.id}}</td>
+                                            <td>{{d.firstName}}</td>
+                                            <td>{{d.gender}}</td>
+                                             <td>{{d.email}}</td>
+                                             <td>{{d.mobile}}</td>
+
+                                               </tr>
+
+
+                                           </tbody>
+                                       </table>
+                             </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+
+
+</div>
+    </md-content>
+</div>

@@ -1,0 +1,126 @@
+<style>
+.card {
+    background-color: #fff;
+}
+
+md-input-container > md-select {
+    margin-top: 0;
+    padding-bottom: 0; }
+md-input-container > md-select > md-select-label {
+    width: 100%; }
+md-input-container > md-radio-group {
+    padding: 24px 2px 0; }
+md-input-container > md-radio-group > md-radio-button {
+    margin: 8px 5px 0;
+    display: inline-block; }
+</style>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>View Details</h2>
+       </div>
+       <hr>
+       <div class="body">
+         <button type="button" style="margin-left: 80%;"><a href="#/usermanagement_nurse">Add Users</a></button>
+
+
+
+<div class="but_list">
+
+
+        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+         <li role="presentation" class="active"><a data-target="#home" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"> Nurse</a></li>
+       </ul>
+
+
+
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <div ng-show="nurseForm">
+         <div class="row">
+           <div class="col-sm-3"><input type="text" ng-model="nur.firstName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.lastName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.userName"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.email"></div>
+         </div>
+         <br>
+         <div class="row">
+           <div class="col-sm-3"><input type="text" ng-model="nur.mobile"></div>
+           <div class="col-sm-3"><input type="text" ng-model="nur.experiance"></div>
+           <div class="col-sm-3"><button type="button" ng-click="updateNurse()">Update</button></div>
+           <div class="col-sm-3"></div>
+         </div>
+         </div>
+
+         <table class="table">
+             <thead>
+               <tr>
+                 <th>Nurse Name </th>
+                 <th>UserName</th>
+                 <th>Email</th>
+                 <th>Hospital  </th>
+                 <th>Speciality</th>
+                 <th>Mobile</th>
+                 <th>Experience</th>
+<!--                  <th>Edit/Delete</th> -->
+               </tr>
+             </thead>
+             <tbody>
+
+               <tr ng-repeat="d in nurselist">
+                 <td>{{d.firstName+" "+d.lastName}}</td>
+                 <td>{{d.userName}}</td>
+                 <td>{{d.email}}</td>
+                 <td>{{d.hospital}}</td>
+                 <td>{{d.speciality}}</td>
+                 <td>{{d.mobile}}</td>
+                 <td>{{d.experiance}}</td>
+<!--                  <td ><button class="glyphicon glyphicon-pencil" ng-click="editNurse(d)">Edit</button>
+                 <button class="glyphicon glyphicon-trash" ng-click="delNurse(d)">Delete</button></td>
+ -->
+               </tr>
+
+             </tbody>
+           </table>
+
+
+       </div>
+
+
+
+
+
+
+     </div>
+    </div>
+    </div>
+  </div>
+  </div>
+      </md-content>
+  </div>

@@ -1,0 +1,85 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding class="cnt_main_section">
+   <div class="card">
+       <div class="header">
+           <h2>Health Records</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+
+  <div class="row">
+       <div class="col-sm-4 col-xs-4">
+<label>Upload Documents</label>
+
+<input type="file" name="recordfilename" id="recordfilename"  file-model ="recordfile"  accept=".jpg,.jpeg,.png"  ng-model ="records.recordfile">
+
+</div>
+     <div class="col-sm-4 col-xs-4">
+<label>Description</label>
+<input type="text" ng-model="records.description">
+</div>
+     <div class="col-sm-4 col-xs-4">
+<button type="button" ng-click="addrecords()">Upload</button>
+<div id="uploaded"><img ng-src="{{uploadImg}}"/></div>
+</div>
+</div>
+</div>
+</div>
+    </md-content>
+</div>
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>List Of Records</h3>
+       </div>
+       <hr>
+       <div class="body">
+<table class="table">
+    <thead>
+      <tr>
+            <th>S.No</th>
+            <th>Patient ID</th>
+            <th>Patient Name</th>
+            <th>Description</th>
+            <th>File</th>
+
+      </tr>
+    </thead>
+    <tbody  ng-repeat="m in recordsList">
+      <tr>
+        <td>{{$index+1}}</td>
+        <td>{{m.patientid}}</td>
+        <td>{{m.patient_name}}</td>
+        <td>{{m.description}}</td>
+        <td>{{m.recordfilename}}</td>
+        <!-- <td><button type="button" ng-click=>Download</button></td> -->
+
+      <td>  <a target="_self" href="{{rec}}" download="123">download</a></td>
+
+
+
+
+
+      </tr>
+    </tbody>
+  </table>
+
+
+
+  </div>
+  </div>
+      </md-content>
+  </div>

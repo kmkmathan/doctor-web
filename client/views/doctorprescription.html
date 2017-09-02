@@ -1,0 +1,580 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+
+</style>
+
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>Doctor Entry</h3>
+       </div>
+       <hr>
+
+       <div class="body">
+
+
+
+
+<form name="doctorForm" class="container-fluid" ng-submit="submit()">
+        <div class="row">
+          <div class="col-xs-4">
+   <md-input-container>
+   <label>Chief Complaint Description</label>
+   <textarea name="chief" rows="6" cols="55" ng-model="doctor.chiefcomplaintdes"></textarea><br><br>
+      <div ng-messages="doctorForm.chief.$error">
+       <div ng-message="required">Enter a Reason.</div>
+     </div>
+   </md-input-container>
+ </div>
+
+          <div class="col-xs-4">
+           <md-input-container>
+              <label>Visit Category </label>
+             <md-select name="visitcate" id="visitcate" placeholder="Visit Category" ng-model="doctor.visitcategory" ng-required="true">
+               <md-option ng-repeat="o in visitcategory" ng-value="o">{{o}}</md-option>
+             </md-select>
+             <div ng-messages="doctorForm.visitcate.$error">
+               <div ng-message="required">Visit Category is required.</div>
+             </div>
+           </md-input-container>
+         </div>
+         <div class="col-xs-4">
+          <md-input-container>
+             <label>Sensitivity </label>
+            <md-select name="sensitivity" id="sensitivity" placeholder="Sensitivity " ng-model="doctor.sensitivity" ng-required="true">
+              <md-option ng-repeat="o in sensitivity" ng-value="o">{{o}}</md-option>
+            </md-select>
+            <div ng-messages="doctorForm.visitcate.$error">
+              <div ng-message="required">Sensitivity is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        </div>
+
+          <div class="row">
+
+            <div class="col-xs-4">
+     <md-input-container>
+     <label>Consulation Brief Description</label>
+     <textarea name="brief" rows="6" cols="55" ng-model="doctor.consulationbriefdes"></textarea><br><br>
+        <div ng-messages="doctorForm.brief.$error">
+         <div ng-message="required">Enter a Reason.</div>
+       </div>
+     </md-input-container>
+   </div>
+ </div>
+ <hr>
+
+ <div class="header">
+   <h4>Issues (Injuries/Medical/Allergy)
+     <md-button type="button" style="margin-left: 80%;margin-top: -25px;" ng-click="ShowHide()">Add</md-button></h4>
+</div>
+<hr>
+<div ng-show = "IsVisible">
+
+<div class="row">
+
+  <div class="col-xs-4">
+  <md-input-container>
+  <label>Type</label>
+  <md-select name="type"  placeholder="Type" ng-model="doctor.type">
+   <md-option ng-repeat="o in type" ng-value="o">{{o}}</md-option>
+  </md-select>
+  <div ng-messages="doctorForm.type.$error">
+   <div ng-message="required">Type is required.</div>
+  </div>
+  </md-input-container>
+  </div>
+
+<div class="col-xs-4" ng-if="doctor.type == 'Problem'">
+<md-input-container>
+<label>Type of Problem </label>
+<md-select name="typeproblem"  placeholder="Type of Problem" ng-model="doctor.typeproblem">
+<md-option ng-repeat="o in typeproblem" ng-value="o">{{o}}</md-option>
+</md-select>
+<div ng-messages="doctorForm.typeproblem.$error">
+<div ng-message="required">Type of Problem is required.</div>
+</div>
+</md-input-container>
+</div>
+<div class="col-xs-4" ng-if="doctor.type == 'Allergy'">
+<md-input-container>
+<label>Type of Allergy </label>
+<md-select name="typeallergy"  placeholder="Type of Allergy " ng-model="doctor.typeallergy">
+<md-option ng-repeat="o in typeallergy" ng-value="o">{{o}}</md-option>
+</md-select>
+<div ng-messages="doctorForm.typeallergy.$error">
+<div ng-message="required">Type of Allergy is required.</div>
+</div>
+</md-input-container>
+</div>
+<div class="col-xs-4" ng-if="doctor.type == 'Medication'">
+<md-input-container>
+<label>Type of Medication </label>
+<md-select name="typemedication" placeholder="Type of Medication" ng-model="doctor.typemedication">
+<md-option ng-repeat="o in typemedication" ng-value="o">{{o}}</md-option>
+</md-select>
+<div ng-messages="doctorForm.typemedication.$error">
+<div ng-message="required">Type of Medication is required.</div>
+</div>
+</md-input-container>
+</div>
+<div class="col-xs-4" ng-if="doctor.type == 'Surgery'">
+<md-input-container>
+<label>Type of Surgery </label>
+<md-select name="typesurgery" placeholder="Type of Surgery " ng-model="doctor.typesurgery">
+<md-option ng-repeat="o in typesurgery" ng-value="o">{{o}}</md-option>
+</md-select>
+<div ng-messages="doctorForm.typesurgery.$error">
+<div ng-message="required">Type of Surgery is required.</div>
+</div>
+</md-input-container>
+</div>
+</div>
+<div class="row">
+     <div class="col-xs-4">
+       <md-input-container>
+         <label>Title </label>
+         <input name="title" ng-model="doctor.title">
+
+         <div ng-messages="doctorForm.title.$error">
+           <div ng-message="required">Title is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">Active Issue Codes</label>
+         <input name="activeissue" ng-model ="doctor.activeissue">
+         <div ng-messages="doctorForm.activeissue.$error">
+           <div ng-message="required">Active Issue Codes is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">Coding</label>
+         <input name="coding" ng-model ="doctor.coding">
+         <div ng-messages="doctorForm.coding.$error">
+           <div ng-message="required">Coding is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+</div>
+<div class="row">
+                 <div class="col-xs-4">
+                   <md-input-container>
+                     <label class="id">Begin Date</label>
+                     <input name="begindate" ng-model ="doctor.begindate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+                     <div ng-messages="doctorForm.begindate.$error">
+                       <div ng-message="required">Begin Date is required.</div>
+                     </div>
+                   </md-input-container>
+                 </div>
+
+
+
+
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">End Date</label>
+         <input name="enddate" ng-model ="doctor.enddate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+         <div ng-messages="doctorForm.enddate.$error">
+           <div ng-message="required">End Date is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">Occurance</label>
+         <md-select name="occurance" id="occurance" placeholder="Occurance " ng-model="doctor.occurance">
+           <md-option ng-repeat="o in occurance" ng-value="o">{{o}}</md-option>
+         </md-select>
+         <div ng-messages="doctorForm.occurance.$error">
+           <div ng-message="required">Occurance is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-xs-4" ng-if="doctor.type == 'Allergy'">
+       <md-input-container>
+         <label class="id">Severity</label>
+         <md-select name="severity" id="severity" placeholder="Severity " ng-model="doctor.severity">
+           <md-option ng-repeat="o in severity" ng-value="o">{{o}}</md-option>
+         </md-select>
+         <div ng-messages="doctorForm.severity.$error">
+           <div ng-message="required">Severity is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+
+     <div class="col-xs-4" ng-if="doctor.type == 'Allergy'">
+       <md-input-container>
+         <label class="id">Reaction</label>
+         <md-select name="reaction" id="reaction" placeholder="Reaction " ng-model="doctor.reaction">
+           <md-option ng-repeat="o in reaction" ng-value="o">{{o}}</md-option>
+         </md-select>
+         <div ng-messages="doctorForm.reaction.$error">
+           <div ng-message="required">Reaction is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">Reffered By</label>
+         <input name="temp" ng-model ="doctor.refferedby">
+         <div ng-messages="doctorForm.temp.$error">
+           <div ng-message="required">Reffered By is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">Outcome</label>
+         <md-select name="outcome" id="outcome" placeholder="Outcome " ng-model="doctor.outcome">
+           <md-option ng-repeat="o in outcome" ng-value="o">{{o}}</md-option>
+         </md-select>
+         <div ng-messages="doctorForm.outcome.$error">
+           <div ng-message="required">Outcome is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+
+
+
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">Description</label>
+         <input name="description" ng-model ="doctor.description">
+         <div ng-messages="doctorForm.description.$error">
+           <div ng-message="required">Description is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+
+
+
+</div>
+</div>
+    </div>
+       <hr>
+<!--chief complaint -->
+<div class="body">
+  <div class="row">
+  <div class="col-xs-4">
+<md-input-container>
+<label>Complaints/Symptoms/Signs </label>
+<textarea name="complaints" rows="6" cols="55" ng-model="doctor.complaints"></textarea><br><br>
+<div ng-messages="doctorForm.complaints.$error">
+<div ng-message="required">Enter a Complaints.</div>
+</div>
+</md-input-container>
+</div>
+
+
+
+   <div class="col-xs-4">
+ <md-input-container>
+ <label>Probable Diagnosis </label>
+ <textarea name="diagnosis" rows="6" cols="55" ng-model="doctor.diagnosis"></textarea><br><br>
+ <div ng-messages="doctorForm.diagnosis.$error">
+ <div ng-message="required">Enter a Probable Diagnosis.</div>
+ </div>
+ </md-input-container>
+ </div>
+
+
+
+    <div class="col-xs-4">
+  <md-input-container>
+  <label> Treatment</label>
+  <textarea name="treatment" rows="6" cols="55" ng-model="doctor.treatment"></textarea><br><br>
+  <div ng-messages="doctorForm.treatment.$error">
+  <div ng-message="required">Enter a Treatment.</div>
+  </div>
+  </md-input-container>
+  </div>
+     </div>
+</div>
+   <hr>
+<!-- diagnosis-->
+<div class="body">
+
+<div class="row">
+<div class="col-xs-4">
+  <label>Ordering Provider : <b>{{fname}}</b></label>
+</div>
+
+<div class="col-xs-4">
+  <md-input-container>
+    <label>Sending To </label>
+    <input  type="text" name="sendingto"  ng-model ="doctor.proceduresendingto" >
+    <div ng-messages="doctorForm.sendingto.$error">
+      <div ng-message="required">Sending To is required.</div>
+
+    </div>
+  </md-input-container>
+</div>
+<div class="col-xs-4">
+<md-input-container>
+  <label class="id">Order Date </label>
+  <input name="orderdate" ng-model ="doctor.procedureorderdate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+  <div ng-messages="doctorForm.orderdate.$error">
+    <div ng-message="required">Order Date is required.</div>
+  </div>
+</md-input-container>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-xs-4">
+<md-input-container>
+   <label>Priority</label>
+  <md-select name="priority" placeholder="Priority"  ng-model="doctor.procedurepriority">
+    <md-option ng-repeat="o in procedurepriority" ng-value="o">{{o}}</md-option>
+  </md-select>
+  <div ng-messages="doctorForm.priority.$error">
+    <div ng-message="required">Priority is required.</div>
+  </div>
+</md-input-container>
+</div>
+<div class="col-xs-4">
+<md-input-container>
+  <label>Procedure </label>
+  <input type="text" name="procedure"  ng-model ="doctor.procedure" >
+  <div ng-messages="doctorForm.procedure.$error">
+    <div ng-message="required">Procedure is required.</div>
+ </div>
+</md-input-container>
+</div>
+</div>
+
+</div>
+   <hr>
+<!-- procedure end-->
+<div class="body">
+
+<!-- <button type="button" style="margin-left: 80%;"><a href="#/doctormydoctors">View Medications</a></button> -->
+<div class="row">
+<div class="col-xs-4">
+
+<label>Ordering Provider : </label>
+<b>{{fname}}</b>
+
+</div>
+
+<div class="col-xs-4">
+<md-input-container>
+  <label>Sending To </label>
+  <input  type="text" name="sendingto" id="sendingto" ng-model ="doctor.medicationsendingto" >
+  <!-- <div ng-messages="doctorForm.sendingto.$error">
+    <div ng-message="required">doctor Name is required.</div>
+
+  </div> -->
+</md-input-container>
+</div>
+<div class="col-xs-4">
+<md-input-container>
+<label class="id">Order Date </label>
+<input name="orderdate" ng-model ="doctor.medicationorderdate" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker>
+<div ng-messages="doctorForm.orderdate.$error">
+  <div ng-message="required">Order Date is required.</div>
+</div>
+</md-input-container>
+</div></div>
+
+<div class="row">
+
+<div class="col-xs-4">
+<md-input-container>
+<label>Medicine Name Strength </label>
+<input type="text" name="medicinename" id="medicinename" ng-model ="doctor.medicinename"  ng-required="true">
+<div ng-messages="doctorForm.medicinename.$error">
+  <div ng-message="required">Medicine Name is required.</div>
+  </div>
+</md-input-container>
+</div>
+
+<div class="col-xs-6">
+
+    <label>Frequency : </label>
+    <md-checkbox
+           ng-model="doctor.medicationfrequencymrn"
+           aria-label="Checkbox 2"
+           ng-true-value="'1'"
+           ng-false-value="'0'"
+           class="md-warn md-align-top-left" flex>
+           Morning
+       </md-checkbox>
+       <md-checkbox
+              ng-model="doctor.medicationfrequencyaftn"
+              aria-label="Checkbox 2"
+              ng-true-value="'1'"
+              ng-false-value="'0'"
+              class="md-warn md-align-top-left" flex>
+              Afternoon
+          </md-checkbox>
+          <md-checkbox
+                 ng-model="doctor.medicationfrequencyeve"
+                 aria-label="Checkbox 2"
+                 ng-true-value="'1'"
+                 ng-false-value="'0'"
+                 class="md-warn md-align-top-left" flex>
+                 Evening
+             </md-checkbox>
+             <md-checkbox
+                    ng-model="doctor.medicationfrequencynit"
+                    aria-label="Checkbox 2"
+                    ng-true-value="'1'"
+                    ng-false-value="'0'"
+                    class="md-warn md-align-top-left" flex>
+                    Night
+                </md-checkbox>
+
+</div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-xs-4">
+  <md-input-container>
+  <label>Duration/No.of Days </label>
+  <md-select  name="duration" id="duration"  placeholder="Duration/No.of Days" ng-model ="doctor.medicationduration"  ng-required="true">
+   <md-option ng-repeat="o in duration" ng-value="o">{{o}}</md-option>
+  </md-select>
+  <div ng-messages="doctorForm.duration.$error">
+    <div ng-message="required">Duration is required.</div>
+
+  </div>
+  </md-input-container>
+  </div>
+<div class="col-xs-4">
+<md-input-container>
+<label>Medication Instruction</label>
+<input type="text" name="email" id="email" ng-model ="doctor.medicationinstruction">
+<div ng-messages="doctorForm.email.$error">
+  <div ng-message="required">Email is required.</div>
+    <div ng-message="pattern">Please Enter Valid Email.</div>
+</div>
+</md-input-container>
+</div>
+
+
+<div class="col-xs-4">
+<md-input-container>
+<label>Signature</label>&nbsp;
+<input type="file" name="profileimage" id="profileimage"  ng-model ="doctor.medicationsignature" file-model ="myFile"  accept=".jpg,.jpeg,.png">
+<div ng-messages="doctorForm.profileimage.$error">
+  <div ng-message="required">profile Image is required.</div>
+</div>
+</md-input-container>
+</div>
+
+
+</div>
+
+</div>
+   <hr>
+  <!--medication end-->
+  <div class="body">
+    <div class="row">
+    <div class="col-xs-6">
+ <md-input-container>
+ <label>Instruction </label>
+ <textarea name="instruction" rows="6" cols="55" ng-model="doctor.instruction"></textarea><br><br>
+ <div ng-messages="doctorForm.instruction.$error">
+ <div ng-message="required">Enter a Instruction.</div>
+ </div>
+ </md-input-container>
+ </div>
+
+ <div class="col-xs-6">
+<md-input-container>
+<label>Health Goal </label>
+<textarea name="goal" rows="6" cols="55" ng-model="doctor.goal"></textarea><br><br>
+<div ng-messages="doctorForm.goal.$error">
+<div ng-message="required">Enter a Reason.</div>
+</div>
+</md-input-container>
+</div>
+</div>
+</div>
+   <hr>
+<!-- goal end-->
+
+<div class="body">
+  <div class="row">
+  <div class="col-xs-6">
+<md-input-container>
+<labeL>Type of Procedure</label>
+<textarea name="instruction" rows="6" cols="55" ng-model="doctor.typeproinstruction"></textarea><br><br>
+<div ng-messages="doctorForm.instruction.$error">
+<div ng-message="required">Enter a Instruction.</div>
+</div>
+</md-input-container>
+</div>
+
+ <div class="col-xs-6">
+   <md-input-container>
+     <label class="id">Follow-up Date </label>
+     <input name="follouupdate" ng-model ="doctor.profollouupdate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+     <div ng-messages="doctorForm.follouupdate.$error">
+       <div ng-message="required">Follow-up Date is required.</div>
+     </div>
+   </md-input-container>
+ </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <md-input-container>
+      <label class="id">Doctor Visit Follow-up Date </label>
+      <input name="follouupdate" ng-model ="doctor.docvisitfollouupdate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+      <div ng-messages="doctorForm.follouupdate.$error">
+        <div ng-message="required">Doctor Visit Follow-up Date is required.</div>
+      </div>
+    </md-input-container>
+  </div>
+
+        <div class="col-xs-6">
+
+            <label>Provided Education : </label>
+            <md-checkbox
+                   ng-model="doctor.providededucation"
+                   aria-label="Checkbox 2"
+                   ng-true-value="'Yes'"
+                   ng-false-value="'No'"
+                   class="md-warn md-align-top-left" flex>
+                   Yes/No
+               </md-checkbox>
+
+       </div>
+</div>
+</div>
+<hr>
+<br>
+<div class="row" style="margin-left: 65%;">
+  <!-- <md-button class="md-primary" ng-click="updatereminder()" >Back</md-button> -->
+        <md-button class="md-primary"  ng-click="addreminder()">Save</md-button>
+      </div>
+      </form>
+
+
+    </div>
+    </div>
+        </md-content>
+    </div>

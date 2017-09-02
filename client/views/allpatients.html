@@ -1,0 +1,76 @@
+<style>
+.info-box-4 .content .text {
+    font-size: 12px;
+    margin: 5px 0;
+    color: #FFF;
+}
+.info-box-4 .content .number {
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 0px;
+    color: #FFF;
+}
+.main-content {
+    margin-left: 200px;
+    background: #d0d0d0;
+    min-height: 1000px;
+}
+.cards {
+    background-color: #42f4c8;
+}
+.h5 .abbr {
+  color:black;
+}
+.card {
+    background-color: #fff;
+}
+.img-circle {
+    border-radius: 50%;
+}
+.img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100px;
+    height: 100px;
+}
+</style>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding class="cnt_main_section">
+   <div class="card">
+       <div class="header">
+          <h2>All Patients</h2>
+       </div>
+       <hr>
+       <div class="body"  ng-repeat="p in patientList">
+
+
+
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <md-content layout-padding>
+                <div class="cards">
+
+                        <div class="row" >
+
+                            <div class="col-md-4 col-sm-4 m-b-0">
+                              <a href="#" class="p-profile-pix"><img src="uploads/{{p.profileImage}}" alt="user" class="img-circle img-responsive"></a>
+                              </div>
+                              <div>
+                                <h5 class="m-b-0"><b title="name">&nbsp;&nbsp;&nbsp; Name : </b>{{p.firstName}} </h5>
+                                  <h5 class="m-b-0"><b title="age">&nbsp; &nbsp; Age : </b>{{p.age}} </h5>
+                                    <h5 class="m-b-0"><b title="disname">&nbsp; &nbsp; Disease Name : </b>Fever </h5>
+                                      <h5 class="m-b-0"><b title="num">&nbsp; &nbsp; Contact Number : </b>{{p.mobile}}</h5>
+                                 </div>
+                        </div>
+
+                </div>
+    </md-content>
+            </div>
+
+
+
+
+  </div>
+</div>
+    </md-content>
+</div>

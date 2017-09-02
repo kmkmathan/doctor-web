@@ -1,0 +1,90 @@
+<style>
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Add Billing and Payments</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+          <button type="button" style="margin-left: 80%;"><a href="#/admin_payment">Add Payments</a></button>
+
+         <tabset>
+
+           <tab heading="Hospital Payments">
+
+             <div class="tab_content">
+               <div class="container-fluid">
+
+                      <div class="row clearfix">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div class="card">
+                                  <div class="header">
+                                      <h3>Hospital Payments</h3>
+                                  </div>
+                                  <hr>
+
+                                  <div class="table-responsive-m" ng-controller= "paymentController">
+                                      <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                          <thead>
+                                              <tr>
+                                                  <th>SL.No</th>
+                                                  <th>Bill date</th>
+                                                  <th>Patient</th>
+                                                  <th>Doctor Name</th>
+                                                  <th>Doctor fees</th>
+                                                  <th>Lab fees</th>
+                                                  <th>Medicine fees</th>
+                                                  <th>Total</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr ng-repeat="d in paymentList">
+                                                  <td>{{$index+1}}</td>
+                                                  <td>{{d.date_of_billing}}</td>
+                                                  <td>{{d.patient_name}}</td>
+                                                    <td>{{d.doctor_name}}</td>
+                                                    <td>{{d.doctor_fess}}</td>
+                                                    <td>{{d.lab_fess}}</td>
+                                                    <td>{{d.medicine_cost}}</td>
+                                                    <td>{{((d.doctor_fess ) -- (d.lab_fess )--(d.medicine_cost ))}}</td>
+
+
+
+                                              </tr>
+
+
+
+
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+     				</div>
+
+           </tab>
+
+
+         </tabset>
+
+
+
+
+
+</div>
+</div>
+
+
+    </md-content>
+</div>

@@ -1,0 +1,81 @@
+
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Visit History</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+
+<div class="but_list">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <!-- <ul id="myTab" class="nav nav-tabs" role="tablist">
+ <li role="presentation" class="active"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Report Details</a></li>
+ </ul> -->
+
+     <div>
+
+<div>
+       <!-- <div role="tabpanel" class="tab-pane fade in active" id="profile" aria-labelledby="profile-tab"> -->
+
+
+             <div class="container-fluid">
+
+                 <div class="row clearfix">
+                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                         <div class="card">
+                             <div class="header">
+                                 <h3>Patient Visit history</h3>
+                             </div>
+                             <hr>
+                             <div class="body">
+                             <div class="table-responsive-m">
+                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                   <thead>
+                                     <tr>
+                                       <th>S.No</th>
+                                       <th>Doctor</th>
+                                       <th>Reason for Visit</th>
+                                       <th>Visit Date</th>
+                                       <th>Visit Time</th>
+
+
+                                     </tr>
+                                   </thead>
+                                   <tbody  ng-repeat="v in visitList ">
+                                     <tr>
+                                       <td>{{$index + 1}}</td>
+
+                                       <td>{{v.VisitingDocotor}}</td>
+                                       <td>{{v.Reason}}</td>
+                                       <td>{{v.visitdate}}</td>
+                                       <td>{{v.visitTime}}</td>
+
+
+                                     </tr>
+                                   </tbody>
+                                 </table>
+                             </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+
+    </div>
+  </div></div></div>
+</div>
+</div>
+    </md-content>
+</div>

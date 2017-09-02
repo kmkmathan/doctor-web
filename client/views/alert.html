@@ -1,0 +1,55 @@
+
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding class="cnt_main_section">
+   <div class="card">
+       <div class="header">
+           <h2>Alerts</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+<div>
+  <h4>Rules alert Management</h4><br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Active alert</th>
+        <th>Passive alert</th>
+        <th>Patient Remainder</th>
+        <th>Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+
+
+      <tr ng-repeat ="a in alertlist">
+        <td>{{a.title}}</td>
+        <td><input type="checkbox" ng-model ="a.activealert"></td>
+        <td><input type="checkbox" ng-model ="a.passivealert"></td>
+        <td><input type="checkbox" ng-model ="a.patientremainder"></td>
+        <td><button type="button" ng-click = "addalert(a)">save</button><button type="button" ng-click = "delalert(a)">delete</button></td>
+
+
+      </tr>
+
+
+    </tbody>
+
+  </table>
+
+</div>
+</div>
+</div>
+    </md-content>
+</div>

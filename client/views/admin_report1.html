@@ -1,0 +1,83 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Reports</h2>
+       </div>
+       <hr>
+       <div class="body">
+         <p>Patient reports</p>
+         <br>
+  <div class="row">
+
+     <div class="col-sm-3 col-xs-3">
+<label>From</label>
+<input type="text" ng-model="reminder.from">
+</div>
+     <div class="col-sm-3 col-xs-3">
+       <label>To</label>
+<input type="text" ng-model="reminder.to">
+</div>
+       <div class="col-sm-2 col-xs-2">
+<button type="button" ng-click="">Search</button>
+</div>
+</div>
+</div>
+</div>
+    </md-content>
+</div>
+
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>List Of Reminders</h3>
+       </div>
+       <hr>
+       <div class="body">
+<table class="table">
+    <thead>
+      <tr>
+            <th>S.No</th>
+            <th>Last Visit</th>
+        <th>Patient Name</th>
+        <th>Address</th>
+        <th>Phone </th>
+        <th>Patient ID </th>
+        <th>Type </th>
+
+      </tr>
+    </thead>
+    <tbody  ng-repeat="m in reminderList |filter:serchingId">
+      <tr>
+        <td>{{m.id}}</td>
+        <td>{{m.receivedby}}</td>
+        <td>{{m.description}}</td>
+        <td>{{m.priority}}</td>
+        <td>{{m.receivedon}}</td>
+
+
+
+      </tr>
+    </tbody>
+  </table>
+  <div>
+  <button type="button" ng-click="">Print</button>
+    <button type="button" ng-click="">Export to CSV</button>
+  </div>
+
+
+  </div>
+  </div>
+      </md-content>
+  </div>

@@ -1,0 +1,126 @@
+
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>Add Procedure</h3>
+       </div>
+       <hr>
+       <div class="body">
+
+
+<div>
+
+  <form name="doctorForm" class="container-fluid" ng-submit="submit()">
+   <div class="row">
+     <div class="col-xs-4">
+       <md-input-container>
+         <label>Ordering Provider</label>
+         <input  type="text" name="patname" ng-model ="doctor.firstName" >
+
+       </md-input-container>
+     </div>
+
+       <div class="col-xs-4">
+         <md-input-container>
+           <label>Sending To </label>
+           <input  type="text" name="sendingto"  ng-model ="doctor.sendingto" >
+           <div ng-messages="doctorForm.sendingto.$error">
+             <div ng-message="required">Sending To is required.</div>
+
+           </div>
+         </md-input-container>
+       </div>
+     <div class="col-xs-4">
+       <md-input-container>
+         <label class="id">Order Date </label>
+         <input name="orderdate" ng-model ="doctor.orderdate" datepicker-config="datepickerConfig" ng-flat-datepicker>
+         <div ng-messages="doctorForm.orderdate.$error">
+           <div ng-message="required">Order Date is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+
+   </div>
+
+     <div class="row">
+
+      <div class="col-xs-4">
+       <md-input-container>
+          <label>Priority</label>
+         <md-select name="priority" placeholder="Priority"  ng-model="doctor.priority">
+           <md-option ng-repeat="o in priority" ng-value="o">{{o}}</md-option>
+         </md-select>
+         <div ng-messages="doctorForm.priority.$error">
+           <div ng-message="required">Priority is required.</div>
+         </div>
+       </md-input-container>
+     </div>
+     <div class="col-xs-4">
+       <md-input-container>
+         <label>Procedure </label>
+         <input type="text" name="procedure"  ng-model ="doctor.procedure" >
+         <div ng-messages="doctorForm.procedure.$error">
+           <div ng-message="required">Procedure is required.</div>
+        </div>
+       </md-input-container>
+     </div>
+   </div>
+
+
+  </form>
+
+  </div>
+
+<br>
+
+<md-button class="md-primary" ng-click="updatereminder()" >Back</md-button>
+    <md-button class="md-primary"  ng-click="addprocedure()">Save & Next</md-button>
+
+
+
+
+</div>
+</div>
+    </md-content>
+</div>
+
+
+<!-- <div layout-gt-sm="column">
+<div class="row">
+<div class="col-xs-4">
+             Type Of Procedure  <md-select placeholder="Calender screen" ng-model= "globalpanescreen" >
+              <md-option ng-repeat="o in calender" ng-value="o">{{o}}</md-option>
+             </md-select>
+           </div>
+
+           <div class="col-xs-4">
+                         Sub Type  <md-select placeholder="Navigation uses sliding menu" ng-model= "globallayout">
+                          <md-option ng-repeat="o in layout" ng-value="o">{{o}}</md-option>
+                         </md-select>
+                       </div>
+
+                       <div class="col-xs-4">
+                                  Standared Instruction  <md-select placeholder="Navigation uses sliding menu" ng-model= "globallayout">
+                                      <md-option ng-repeat="o in layout" ng-value="o">{{o}}</md-option>
+                                     </md-select>
+                                   </div>
+
+
+
+
+                       <div class="col-sm-2 col-xs-2">
+                    <button type="button" ng-click="">Add</button>
+                    </div>
+       </div>
+
+
+</div> -->

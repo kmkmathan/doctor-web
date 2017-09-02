@@ -1,0 +1,101 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+
+</style>
+
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h3>Doctor Entry</h3>
+       </div>
+       <hr>
+       <div class="header">
+           <h4>Add Chief complaint description, Add Consultant brief description, Add Issues/Allergy.</h4>
+       </div>
+<hr>
+       <div class="body">
+
+
+
+
+<form name="doctorForm" class="container-fluid" ng-submit="submit()">
+        <div class="row">
+          <div class="col-xs-4">
+   <md-input-container>
+   <label>Chief Complaint Description</label>
+   <textarea name="chief" rows="6" cols="55" ng-model="doctor.chiefcomplaintdes"></textarea><br><br>
+      <div ng-messages="doctorForm.chief.$error">
+       <div ng-message="required">Enter a Reason.</div>
+     </div>
+   </md-input-container>
+ </div>
+
+          <div class="col-xs-4">
+           <md-input-container>
+              <label>Visit Category </label>
+             <md-select name="visitcate" id="visitcate" placeholder="Visit Category" ng-model="doctor.visitcategory" ng-required="true">
+               <md-option ng-repeat="o in visitcategory" ng-value="o">{{o}}</md-option>
+             </md-select>
+             <div ng-messages="doctorForm.visitcate.$error">
+               <div ng-message="required">Visit Category is required.</div>
+             </div>
+           </md-input-container>
+         </div>
+         <div class="col-xs-4">
+          <md-input-container>
+             <label>Sensitivity </label>
+            <md-select name="sensitivity" id="sensitivity" placeholder="Sensitivity " ng-model="doctor.sensitivity" ng-required="true">
+              <md-option ng-repeat="o in sensitivity" ng-value="o">{{o}}</md-option>
+            </md-select>
+            <div ng-messages="doctorForm.visitcate.$error">
+              <div ng-message="required">Sensitivity is required.</div>
+            </div>
+          </md-input-container>
+        </div>
+
+        </div>
+
+          <div class="row">
+
+            <div class="col-xs-4">
+     <md-input-container>
+     <label>Consulation Brief Description</label>
+     <textarea name="brief" rows="6" cols="55" ng-model="doctor.consulationbriefdes"></textarea><br><br>
+        <div ng-messages="doctorForm.brief.$error">
+         <div ng-message="required">Enter a Reason.</div>
+       </div>
+     </md-input-container>
+   </div>
+   <div class="col-xs-4">
+<md-input-container>
+<label>Issues (Injuries/Medical/Allergy) </label>
+<textarea name="issues" rows="6" cols="55" ng-model="doctor.issues"></textarea><br><br>
+<div ng-messages="doctorForm.issues.$error">
+<div ng-message="required">Enter a Reason.</div>
+</div>
+</md-input-container>
+</div>
+
+
+
+
+        </div>
+
+    </div>
+
+<br>
+  <md-button class="md-primary" ng-click="updatereminder()" >Back</md-button>
+        <md-button class="md-primary"  ng-click="addDescription()">Save & Next</md-button>
+      </form>
+
+
+    </div>
+    </div>
+        </md-content>
+    </div>

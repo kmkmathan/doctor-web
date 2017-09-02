@@ -1,0 +1,318 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Add Billing and Payments</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+         <tabset>
+           <tab heading="Billing Information">
+
+             <div class="tab_content active">
+
+
+
+               <div class="container-fluid">
+
+              <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="card">
+                <div class="header">
+                  <h3>Billing Information </h3>
+                </div>
+                   <hr>
+                <div class="body">
+                              <div class="row clearfix">
+
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+
+                                              <input type="text" class="form-control" ng-model="payment.patientid" placeholder="Patient ID">
+                                          </div>
+                                      </div>
+                                  </div>
+                              <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+
+              <input type="text" class="form-control"   ng-model="payment.patient_name" placeholder="Patient Name">
+
+                                          </div>
+                                      </div>
+                                  </div>
+
+
+
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                            <!-- <input name="appdate" ng-model ="payment.date_of_service" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker> -->
+
+            <input type="text" class="form-control"  ng-model ="payment.date_of_service" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker placeholder="Date of Service">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+
+            <input type="text" class="form-control" name="appdate" ng-model ="payment.date_of_billing" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker placeholder="Date of Billing">
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.visit_id" placeholder="Visit ID">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.type_of_visit" placeholder="Type of Visit">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4 col-xs-4">
+                                 <div class="form-group">
+                                     <div class="form-line">
+                                         <input type="text" class="form-control" ng-model="payment.doctor_name" placeholder="Doctor Name">
+                                     </div>
+                                 </div>
+                             </div>
+
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.doctor_fess" placeholder="Doctor Fees" >
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.lab_fess" placeholder="Lab Fees">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.medicine_cost" placeholder="Medicine Cost">
+                                          </div>
+                                      </div>
+                                  </div>
+
+
+                                  <!-- <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.tax" placeholder="Tax">
+                                          </div>
+                                      </div>
+                                  </div> -->
+
+
+
+
+
+<!--
+                                  <div class="col-sm-4 col-xs-4">
+                                        <div class="form-group drop-custum">
+                                            <select class="form-control show-tick"  ng-model="payment.tax"  >
+                                                <option value="">Tax</option>
+                                                <option>0.05</option>
+                                                <option>0.145</option>
+
+                                            </select>
+                                        </div>
+                                    </div> -->
+
+
+
+
+
+
+
+
+
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+
+                                                <label>Total:{{ ((payment.doctor_fess ) -- (payment.lab_fess )--(payment.medicine_cost ))}}</label>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                </div>
+                                  <div class="header">
+                                    <h3>Insurance Details</h3>
+                                  </div>
+        <hr>
+          <div class="body">
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.insurance_company" placeholder="Insurance Company">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-4 col-xs-4">
+                                      <div class="form-group">
+                                          <div class="form-line">
+                                              <input type="text" class="form-control" ng-model="payment.insurance_id" placeholder="Insurance ID">
+                                          </div>
+                                      </div>
+                                  </div>
+                                       <div class="col-sm-4 col-xs-4">
+                                       </div>
+                                     </div>
+
+                          </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <div class="container-fluid">
+
+                    <div class="row clearfix">
+            			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            				<div class="card">
+            					<div class="header">
+            						<h3>Payment Information </h3>
+            					</div>
+                        <hr>
+            					<div class="body">
+                                    <div class="row clearfix">
+
+                                      <div class="col-sm-4 col-xs-4">
+                                            <div class="form-group drop-custum">
+                                                <select class="form-control show-tick"  ng-model="payment.payment_method">
+                                                    <option value="">-- Payment Method --</option>
+                                                    <option>Cash</option>
+                                                    <option>Cheque</option>
+                                                    <option>Credit Card</option>
+                                                    <option>Debit Card</option>
+                                                    <option>Netbanking</option>
+                                                    <option>Insurance</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-4">
+                                            <div class="form-group drop-custum">
+                                                <select class="form-control show-tick" ng-model="payment.payment_status">
+                                                    <option value="">-- Payment Status --</option>
+                                                    <option>Select Status</option>
+                                                    <option>Complete</option>
+                                                    <option>Pending</option>
+                                                    <option>Partial</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4 col-xs-4">
+                                                 <div class="form-group">
+                                                     <div class="form-line">
+                                                         <input type="value" class="form-control" ng-model="payment.balance_amount" placeholder="Balance Amount">
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             <br>
+                                        <div class="col-xs-12">
+                                            <button type="submit" class="btn btn-raised g-bg-cyan" ng-click="addPayment()" >Submit</button>
+                                            <button type="submit" class="btn btn-raised" ng-click="resetpayment()" >Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+            				</div>
+            			</div>
+            		</div>
+                </div>
+
+
+     				</div>
+
+           </tab>
+           <tab heading="Hospital Payments">
+
+             <div class="tab_content">
+               <div class="container-fluid">
+
+                      <div class="row clearfix">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                              <div class="card">
+                                  <div class="header">
+                                      <h3>Hospital Payments</h3>
+                                  </div>
+                                  <hr>
+
+                                  <div class="table-responsive-m" ng-controller= "paymentController">
+                                      <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                          <thead>
+                                              <tr>
+                                                <th>SL.No</th>
+                                                 <th>Bill Date</th>
+                                                 <th>Patient</th>
+                                                 <th>Doctor Name</th>
+                                                 <th>Doctor Fees</th>
+                                                 <th>Lab Fees</th>
+                                                 <th>Medicine Fees</th>
+                                                 <th>Total</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr ng-repeat="d in paymentList">
+                                                <td>{{$index+1}}</td>
+                                               <td>{{d.date_of_billing}}</td>
+                                               <td>{{d.patient_name}}</td>
+                                                 <td>{{d.doctor_name}}</td>
+                                                 <td>{{d.doctor_fess}}</td>
+                                                 <td>{{d.lab_fess}}</td>
+                                                 <td>{{d.medicine_cost}}</td>
+                                                 <td>{{((d.doctor_fess ) -- (d.lab_fess )--(d.medicine_cost ))}}</td>
+
+                                              </tr>
+
+
+
+
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+     				</div>
+
+           </tab>
+
+
+         </tabset>
+
+
+
+
+
+</div>
+</div>
+
+
+    </md-content>
+</div>

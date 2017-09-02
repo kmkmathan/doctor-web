@@ -1,0 +1,322 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+</style>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Medication</h2>
+       </div>
+       <hr>
+       <div class="body">
+         <button type="button" style="margin-left: 80%;"><a href="#/medication">Add Medication</a></button>
+
+
+
+
+
+<!-- ***************************************************************************************************************************** -->
+
+<!-- <div class="row">
+  <div class="col-sm-3"><input type="text" ng-model="medi.Generic"></div>
+  <div class="col-sm-3"><input type="text" ng-model="medi.Manufacturar"></div>
+  <div class="col-sm-3"><input type="text" ng-model="medi.ManufacturerId"></div>
+  <div class="col-sm-3"><input type="text" ng-model="medi.Strength"></div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-3"><input type="text" ng-model="medi.Drug"></div>
+  <div class="col-sm-3"><input type="text" ng-model="medi.DrugId"></div>
+  <div class="col-sm-3"><input type="text" ng-model="medi.Info"></div>
+  <div class="col-sm-3"><button type="button" ng-click="updateMedication()">Update</button></div>
+  <div class="col-sm-3"></div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div >
+
+                      <div ng-show="updateMedi">
+                        <div class="row">
+                        		<!-- NAME -->
+                        	 <div class="col-xs-4">
+                                       <md-input-container>
+                                         <label>Generic Name</label>
+                                        <input type="text" ng-model="medi.Generic">
+
+                                       </md-input-container>
+                                     </div>
+
+                        		<!-- USERNAME -->
+
+
+                        		 <div class="col-xs-4">
+                                       <md-input-container>
+                                         <label>Manufacturer Name</label>
+                                         <input type="text" ng-model="medi.Manufacturar">
+
+                                       </md-input-container>
+                                     </div>
+                        		<!-- EMAIL -->
+
+                            <div class="col-xs-4">
+                                       <md-input-container>
+                                         <label>Manufacturer Id</label>
+                                         <input type="text" ng-model="medi.ManufacturerId">
+                                       </md-input-container>
+                                     </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <!-- NAME -->
+                           <div class="col-xs-4">
+                                       <md-input-container>
+
+                                         <label>Strength</label>
+                                         <input type="text" ng-model="medi.Strength">
+                                       </md-input-container>
+                                     </div>
+
+                            <!-- USERNAME -->
+
+
+                             <div class="col-xs-4">
+                                       <md-input-container>
+
+                                         <label>Drug Id</label>
+                                         <input type="text" ng-model="medi.DrugId">
+                                       </md-input-container>
+                                     </div>
+                            <!-- EMAIL -->
+
+                        </div>
+
+                        <div class="row">
+
+                        <div class="col-xs-4">
+
+                                     <label>Description</label>
+                                     <textarea name="Reason" rows="1" cols="30" ng-model="medi.Info" ></textarea>
+
+
+                                 </div>
+
+                                 <div class="col-sm-4"><button type="button" ng-click="updateMedication()">Update</button></div>
+                                   <!-- <button type="submit">Save</button> -->
+
+
+                               </div>
+
+                                <hr>
+                      </div>
+
+
+
+                  <div class="col-xs-4">
+                             <md-input-container>
+                               <label>Search </label>
+                               <input type="text" name="subtype"  ng-model="idSearch" required  ng-click=genId()>
+
+                             </md-input-container>
+                           </div>
+
+
+
+
+
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th>Generic Name</th>
+                          <th>Manufacturer name</th>
+                          <th>Manufacturer Id</th>
+                          <th>Strength</th>
+                          <th>Drug</th>
+                          <th>Drug Id</th>
+                          <th>Description</th>
+                          <th>Action</th>
+
+
+
+
+                        </tr>
+                      </thead>
+                      <tbody  ng-repeat="m in mediList | filter:idSearch ">
+                        <tr>
+                          <td>{{$index + 1}}</td>
+                          <td>{{m.Generic}}</td>
+                          <td>{{m.Manufacturar}}</td>
+                          <td>{{m.ManufacturerId}}</td>
+                          <td>{{m.Strength}}</td>
+                          <td>{{m.Drug}}</td>
+                            <td>{{m.DrugId}}</td>
+                           <td>{{m.Info}}</td>
+
+
+                <td><button type="button" ng-click="editMedication(m)">Edit</button>
+                <button type="button" ng-click="removeMedication(m)">Delete</button>
+                </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="but_list">
+    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+       <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a data-target="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Add Medications</a></li>
+ <li role="presentation"><a data-target="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">View Medications</a></li>
+ </ul>
+
+     <div id="myTabContent" class="tab-content">
+       <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       </div>
+
+
+       <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+
+
+<div ng-show="updateMedi">
+  <form ng-submit="updateMedication()">
+  <label>Generic Name</label>
+  <input type="text" ng-model="medi.Generic"><br>
+  <label>Manufacturer Name</label>
+  <input type="text" ng-model="medi.Manufacturar"> <br>
+  <label>Manufacturer Name</label>
+  <input type="text" ng-model="medi.ManufacturerId"><br>
+  <label>Strength</label>
+  <input type="text" ng-model="medi.Strength"><br>
+  <label>Drug</label>
+  <select ng-model="medi.Drug">
+  <option></option>
+  </select><br>
+  <label>Drug Id</label>
+  <input type="text" ng-model="medi.DrugId"><br>
+  <label>Additional Info</label>
+  <textarea name="Reason" rows="6" cols="55" ng-model="medi.Info" required></textarea><br><br>
+  <button type="submit">Update</button>
+  </form>
+</div>
+  <table class="table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Generic Name</th>
+          <th>Manufacturer name</th>
+          <th>Manufacturer Id</th>
+          <th>Strength</th>
+          <th>Drug</th>
+          <th>Drug Id</th>
+          <th>Additional Info</th>
+          <th>Action</th>
+
+
+
+
+        </tr>
+      </thead>
+      <tbody  ng-repeat="m in mediList">
+        <tr>
+          <td>{{$index + 1}}</td>
+          <td>{{m.Generic}}</td>
+          <td>{{m.Manufacturar}}</td>
+          <td>{{m.ManufacturerId}}</td>
+          <td>{{m.Strength}}</td>
+          <td>{{m.Drug}}</td>
+            <td>{{m.DrugId}}</td>
+           <td>{{m.Info}}</td>
+
+
+<td><button type="button" ng-click="editMedication(m)">Edit</button>
+<button type="button" ng-click="removeMedication(m)">Delete</button>
+</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  <div>
+       </div>
+
+     </div>
+    </div>
+  </div></div> -->
+
+
+
+</div>
+</div>
+</div>
+    </md-content>
+</div>

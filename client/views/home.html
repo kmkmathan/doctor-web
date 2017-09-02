@@ -1,0 +1,34 @@
+<style>
+  .loading_head_section a{color:#FFF;}
+</style>
+<div class="loading_page_section">
+<!--<img src="images/tatlubg.jpg" alt="Tatlu" class="logo">-->
+<div ng-show="!loggedIn" class="col-xs-12 loading_head_section">
+  <div class="col-xs-6">
+    <a href="#/">Tatlu</a>
+  </div>
+  <div class="col-xs-6">
+    <ul class="list-inline text-right">
+      <li><a href="#/login">login</a></li>
+      <li><a href="#/patient">Register</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<div ng-show="loggedIn" class="col-xs-12 loading_head_section">
+  <div class="col-xs-6">
+    <a href="#/">Tatlu</a>
+  </div>
+  <div class="col-xs-6">
+    <ul class="list-inline text-right">
+
+      <li><a ng-click="LogOut()" href="#/login"> Logout</a></li>
+
+
+    
+
+    </ul>
+  </div>
+</div>
+</div>

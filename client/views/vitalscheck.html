@@ -1,0 +1,138 @@
+<style>
+
+.card {
+    background-color: #fff;
+}
+
+</style>
+
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+  <md-content layout-padding>
+   <div class="card">
+       <div class="header">
+           <h2>Vitals Checking</h2>
+       </div>
+       <hr>
+       <div class="body">
+
+
+
+
+<form name="patientForm" class="container-fluid" ng-submit="submit()">
+        <div class="row">
+          <div class="col-xs-4">
+            <md-input-container>
+              <label>Patient ID  </label>
+              <input  type="text" name="patname" id="patname" ng-model ="patient.id" ng-required="true">
+              <div ng-messages="patientForm.patname.$error">
+                <div ng-message="required">Patient ID is required.</div>
+                <div ng-message="pattern">Please Enter letters only.</div>
+                <div ng-message="minlength">Patient ID is too short..</div>
+                   <div ng-message="maxlength">Patient ID is too long.</div>
+              </div>
+            </md-input-container>
+          </div>
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label>Patient Name </label>
+                <input  type="text" name="patname" id="patname" ng-model ="patient.firstName" ng-pattern="/^(\D)+$/" ng-required="true">
+                <div ng-messages="patientForm.patname.$error">
+                  <div ng-message="required">Patient Name is required.</div>
+                  <div ng-message="pattern">Please Enter letters only.</div>
+                  <div ng-message="minlength">Patient Name is too short..</div>
+                     <div ng-message="maxlength">Patient Name is too long.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+                        <div class="col-xs-4">
+                          <md-input-container>
+                            <label class="id">Vital Date</label>
+                            <input name="appdate" ng-model ="patient.vitaldate" datepicker-config="datepickerConfig"   ng-required="true" ng-flat-datepicker>
+                            <div ng-messages="patientForm.appdate.$error">
+                              <div ng-message="required">Vital Date is required.</div>
+                            </div>
+                          </md-input-container>
+                        </div>
+        </div>
+
+          <div class="row">
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Pulse/min</label>
+                <input name="pulse" ng-model ="patient.pulse">
+                <div ng-messages="patientForm.pulse.$error">
+                  <div ng-message="required">Pulse is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Blood Pressure</label>
+                <input name="bloodpressure" ng-model ="patient.bloodpressure">(Systolic/Disastolic)
+                <div ng-messages="patientForm.bloodpressure.$error">
+                  <div ng-message="required">Blood Pressure is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Temperature/.C</label>
+                <input name="temp" ng-model ="patient.temperature">
+                <div ng-messages="patientForm.temp.$error">
+                  <div ng-message="required">Temperature is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+
+        </div>
+
+          <div class="row">
+
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Respiratory Rate/min</label>
+                <input name="resrate" ng-model ="patient.resrate">
+                <div ng-messages="patientForm.resrate.$error">
+                  <div ng-message="required">Respiratory Rate is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Weight/Kg</label>
+                <input name="weight" ng-model ="patient.weight">
+                <div ng-messages="patientForm.weight.$error">
+                  <div ng-message="required">Weight is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+            <div class="col-xs-4">
+              <md-input-container>
+                <label class="id">Height/Feet</label>
+                <input name="height" ng-model ="patient.height">
+                <div ng-messages="patientForm.height.$error">
+                  <div ng-message="required">Height is required.</div>
+                </div>
+              </md-input-container>
+            </div>
+        </div>
+
+      </div>
+
+
+        <!-- <md-button type="button" ng-click="resetpatient(patient)">RESET</md-button> -->
+        <md-button class="md-primary" ng-disabled="patientForm.$invalid" ng-click="addappoint($event)">SUBMIT</md-button>
+      </form>
+
+
+    </div>
+    </div>
+        </md-content>
+    </div>
